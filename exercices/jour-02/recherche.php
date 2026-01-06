@@ -17,8 +17,10 @@ if (in_array ("électronique",$categories)){
 }
 ?>
 
-array_search()
-
+<?php
+$categories= array ("vêtements","chaussures", "Accesssoires", "sport");
+echo array_search ("sport",$categories);
+?>
 
 </body>
 </html>
