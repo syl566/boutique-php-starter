@@ -8,10 +8,13 @@
 <body>
     <?php
     $firstNames = ["Jean", "Ben", "Alice", "Marie", "Paul"];
-   
+    $i = 0;
+
     foreach ($firstNames as $name) {
+        
         $i++;
-        echo "<ul><li> $i. $name</li></ul>";
+        echo "<ul><li>$i. $name</li></ul>";
+
     }
     ?>
     
