@@ -13,7 +13,7 @@
 ["name" => "Jean", "price" => 40 , "stock" => "3"],
 ["name" => "Robe", "price" => 25 , "stock" => "9"],
 ["name" => "Robe2", "price" => 25 , "stock" => "16"],
-  ];
+  ]
 ?>
 <?php foreach ($products as $product):?>
     <div class="produit">
