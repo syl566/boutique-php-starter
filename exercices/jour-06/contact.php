@@ -36,7 +36,7 @@
     echo '' . $name, '' . $email, '' . $message;
 
     //validation des données
-    $name = $_POST["name"] ?? "";
+    $name = $_POST["name"] ?? "";  // garder les valeurs en cas d'erreur formulaire avec pré-remplissage
     $email = $_POST["email"] ?? "";
     $message = $_POST["message"] ?? "";
 
