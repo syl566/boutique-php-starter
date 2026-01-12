@@ -10,11 +10,9 @@
 <body>
     <?php
     $name = $_GET["name"];
-    echo 'Bonjour ' . htmlspecialchars($_GET["name"]) .  ',  vous avez ' . htmlspecialchars($_GET["age"]) . ' ans  !  <br>';
+    echo 'Bonjour ' . htmlspecialchars($_GET["name"]) .  ',  vous avez ' . htmlspecialchars($_GET["age"]) . ' ans  !  <br>'; //affiche Bonjour Marie ,vous avez 25 ans!
 
-    //Affiche "Bonjour [name] !" ou "Bonjour visiteur !
-
-    if ($_GET["name"]) {
+    if ($_GET["name"]) {   //Affiche "Bonjour [name] !" ou "Bonjour visiteur !
         echo "Bonjour"($_GET["name"]);
     } else {
         echo 'Bonjour visiteur';
