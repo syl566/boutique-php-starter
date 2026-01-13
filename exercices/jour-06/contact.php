@@ -21,7 +21,7 @@
             </li>
             <li>
                 <label for="message">Laissez un message ?</label><br>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" row="10" cols=" 24" required></textarea>
             </li>
             <button type="submit">Connexion</button>
         </ul>
@@ -46,12 +46,10 @@
     }
 
     // Vérifier un nombre
-    $message = $_POST["message"] ?? "0";
-    if (!is_numeric($message) || $message <= 10) {
-        echo 'message trop long';
+    if (strlen($message) <= 10) {
+        $error = "Le message doit contenir au moins 10 caractères";
     }
     //vérifie le format
-
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Email invalide";
     }
