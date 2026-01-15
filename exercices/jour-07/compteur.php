@@ -13,6 +13,8 @@ if (isset($_SESSION["visits"])) {
 if (isset($_GET["reset"])) {
     $_SESSION["visits"] = 0;
 }
+//Que se passe-t-il si tu ouvres la page dans un autre navigateur ? cela fonctionne 
+// Que se passe-t-il si tu fermes et rouvres ton navigateur ? il commence à 1 si le début est a zéro
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +23,7 @@ if (isset($_GET["reset"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercice 1</title>
 </head>
 
 <body>
