@@ -11,8 +11,8 @@ if ($username === 'admin' && $password === '1234') {
     $_SESSION['user'] = $username;
     header('location: dashboard.php');
     exit;
-}else{
-    $error ['username']= "identifiants incorrects";
+} else {
+    $error['name'] = "identifiants incorrects";
 }
 ?>
 
@@ -30,11 +30,12 @@ if ($username === 'admin' && $password === '1234') {
     <form action="login.php" method="post">
         <div>
             <label for="username"></label>
-        <input type="username" name="username" placeholder="Nom d'utilisateur">
-        <?php if (isset($error['user'])): ?>
-            <div class="error" style="color:violet"><?= $error ['username'] ?></div>
-        <?php endif;
-        ?>
+            <input type="username" name="username" placeholder="Nom d'utilisateur">
+            <?php if (isset($error['name'])): ?>
+                <div class="error" style="color:violet"><?= $error['name'] ?></div>
+            <?php endif;
+            ?>
+
         </div>
         <input type="password" name="password" placeholder="Mot de passe">
         <button type="submit">Se connecter</button>
