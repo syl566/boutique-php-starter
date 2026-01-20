@@ -1,33 +1,43 @@
 <?php
-$user = new user('Jhon', 'jhon@exemple.fr', new DateTime('2025-01-15'));
-
 class user
-{
-    // attributs
-    public $name;
-    public $email;
-    public $registrationDate;
-
-    //methodes
-    public function construct($name, $email, $registrationDate)
+{    //methodes
+    public function __construct(
+        public string $name,
+        public string $email,
+        public DateTime $registrationDate,
+    ) {}
+    public function displayUser()
     {
-        echo $this->name = $name . '<br/>';
-        echo $this->email = $email . '<br/>';
-        echo $this->registrationDate = $registrationDate . '<br/>';
+        echo "Nom: " . $this->name . "<br>";
+        echo "Email: " . $this->email . "<br>";
+        echo "Date d'inscription: " . $this->registrationDate->format('Y-m-d') . "<br>";
     }
-    
 
     public function isNewNember()
     {
-        $date = new DateTime();
-        
-        if ($this->registrationDate > $date->modify('-30 days')) {
+        $dateJour = new DateTime('now');
+        $interval = $this->registrationDate->diff($dateJour);
+        if ($interval->days < 30) {
             return true;
-        } else {
-            return false;
         }
     }
 }
-$user->construct('Jhon', 'jhon@exemple.fr', new DateTime('2025-01-15'));
 
-?>
+$user1 = new user('Jhon', 'jhon@exemple.fr', new DateTime('2025-01-15'));
+$user2 = new user('Doe', 'doe@exemple.fr', new DateTime('2026-01-15'));
+
+// affiche les informations de l'utilisateur 1
+$user1->displayUser();
+if ($user1->isNewNember()) {
+    echo "L'utilisateur est un nouveau membre.<br>";
+} else {
+    echo "L'utilisateur n'est pas un nouveau membre.<br>";
+}
+
+// affiche les informations de l'utilisateur 2
+$user2->displayUser();
+if ($user2->isNewNember()) {
+    echo "L'utilisateur est un nouveau membre.<br>";
+} else {
+    echo "L'utilisateur n'est pas un nouveau membre.<br>";
+}
