@@ -1,31 +1,29 @@
 <?php
-class BankAccount
-{ 
+class Bank
+{
     // attribut privé
-    private $balance;
+    private float $balance;
 
     //constructeur
-    public function construct($account, $balance)
+    public function __construct()
     {
-        $this->$account = $account;
-        $this->balance = $balance;
+        $this->balance = 0;
     }
     // méthode pour déposer
     public function deposit($amount)
     {
-        if ($amount > 0) {
-            $this->balance += $amount;
-        } else {
-            echo "Le montant déposer invalid.";
-        }
+        $this->balance += $amount;
+        echo "votre solde est de : " . $this->balance . "<br/>";
     }
     // méthodes pour retirer
     public function withdraw($amount)
     {
-        if ($amount > 0 && $amount <= $this->balance) {
+        if ($this->balance >= $amount) {
             $this->balance -= $amount;
+            echo "votre solde est de : " . $this->balance . " après retrait $amount<br/>";
+        } else  if ($this->balance > $amount) { //ne pas autoriser de retrait en negatif
         } else {
-            echo " solde insuffisant.";
+            echo " solde insuffisant <br/>" . $this->balance . "<br/>";
         }
     }
     public function getBalance()
@@ -33,7 +31,8 @@ class BankAccount
         return $this->balance;
     }
 }
-$account = new BankAccount();
-$account->withdraw(10);
-$account->deposit(50);
-echo $account->getBalance();
+$compte = new Bank;
+
+$compte->deposit(400);
+$compte->withdraw(100);
+$compte->withdraw(500);
